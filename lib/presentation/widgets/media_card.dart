@@ -105,79 +105,81 @@ class MediaCard extends StatelessWidget {
             // Content details
             Padding(
               padding: const EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Title
-                  Text(
-                    mediaContent.title,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  
-                  const SizedBox(height: 4),
-                  
-                  // Source & Date
-                  if (mediaContent.sourceName != null) ...[
+              child: Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Title
                     Text(
-                      mediaContent.sourceName!,
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 12,
+                      mediaContent.title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
                       ),
-                      maxLines: 1,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 2),
-                  ],
-                  
-                  Text(
-                    _getFormattedDate(mediaContent.publishedAt),
-                    style: TextStyle(
-                      color: Colors.grey[500],
-                      fontSize: 11,
-                    ),
-                  ),
-                  
-                  const SizedBox(height: 8),
-                  
-                  // Likes and comments
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.favorite_border,
-                        color: Colors.grey[400],
-                        size: 16,
-                      ),
-                      const SizedBox(width: 4),
+                    
+                    const SizedBox(height: 4),
+                    
+                    // Source & Date
+                    if (mediaContent.sourceName != null) ...[
                       Text(
-                        mediaContent.likes.toString(),
+                        mediaContent.sourceName!,
                         style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 12,
                         ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      const SizedBox(width: 12),
-                      Icon(
-                        Icons.chat_bubble_outline,
-                        color: Colors.grey[400],
-                        size: 16,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        mediaContent.comments.toString(),
-                        style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 12,
-                        ),
-                      ),
+                      const SizedBox(height: 2),
                     ],
-                  ),
-                ],
+                    
+                    Text(
+                      _getFormattedDate(mediaContent.publishedAt),
+                      style: TextStyle(
+                        color: Colors.grey[500],
+                        fontSize: 11,
+                      ),
+                    ),
+                    
+                    const SizedBox(height: 8),
+                    
+                    // Likes and comments
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.favorite_border,
+                          color: Colors.grey[400],
+                          size: 16,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          mediaContent.likes.toString(),
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 12,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Icon(
+                          Icons.chat_bubble_outline,
+                          color: Colors.grey[400],
+                          size: 16,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          mediaContent.comments.toString(),
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -226,4 +228,4 @@ class MediaCard extends StatelessWidget {
       return 'Just now';
     }
   }
-} 
+}
